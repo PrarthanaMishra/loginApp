@@ -4,21 +4,31 @@
     </head>
 <body>
     <h1>Login</h1>
+
+    <% if (err === 'invalidUsernameOrPassword' && invalidUsernamePassword) { %>
+        <h1> Invalid username and password</h1>
+     <% } %>
+
     <form name="form" method="post" action="/login">
     <table>
         <tr>
         <td> Name</td>
-        <td><input type="text" name="username" ></td>
+        <td><input value="<%= err && username || '' %>" type="text" name="username" ></td> 
+        <% if (err === 'parametersNotFound' && usernameParameterNotFound) { %>
+            <td> Username required</td>
+         <% } %>
         </tr>
         <tr>
         <td>Password</td>
         <td><input type="text" name="password" ></td>
+        <% if (err === 'parametersNotFound' && passwordParameterNotFound) { %>
+            <td> Password required</td>
+         <% } %>
         </tr>
         <tr>
         <td colspan="2"><input type="submit" value="Submit" ></td>
         </tr>
     </table>
     </form>   
-    
 </body>
 </html>

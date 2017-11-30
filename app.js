@@ -12,8 +12,7 @@ var routes = require('./server/routes/route');
 var connection=require('./server/models/connection');
 var jwt = require('jsonwebtoken'); 
 var cookieParser=require('cookie-parser');
-//var pgp = require('pg-promise')(options);
-
+const expressValidator=require('express-validator');
 var app = express();
 // var options = {
 //   // Initialization Options
